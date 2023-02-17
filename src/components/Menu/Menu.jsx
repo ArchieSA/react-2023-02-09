@@ -1,5 +1,6 @@
 import React from "react";
 
-export const Menu = () => {
-  return <div>Menu</div>;
+export const Menu = ({menu}) => {
+  const restaurantMenu = menu.map(({ name }) => name).join(" ,");
+  return <div>{restaurantMenu}</div>;
 };
