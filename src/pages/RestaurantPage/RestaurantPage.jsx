@@ -1,27 +1,7 @@
 import React from "react";
-import { Restaurant } from "../../components/Restaurant/Restaurant";
+import { Restaurant, Restaurant2 } from "../../components/Restaurant/Restaurant";
 
 export const RestaurantPage = ({ restaurants }) => {
-  //   const { name, menu, reviews } = restaurants[0];
-
-  //   const restaurantDishes = menu.map(({ name }) => name).join(" ,");
-  //   const restaurantReviews = reviews.map(({ text }) => text).join(" ,");
-
-  //   return (
-  //     <div>
-  //       <div>
-  //         <h2>{name}</h2>
-  //         <div>
-  //           <h3>Menu</h3>
-  //           <div>{restaurantDishes}</div>
-  //         </div>
-  //         <div>
-  //           <h3>Reviews</h3>
-  //           <div>{restaurantReviews}</div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
 
   return (
     <div>
@@ -29,6 +9,18 @@ export const RestaurantPage = ({ restaurants }) => {
       <Restaurant restaurant={restaurants[1]} />
       <Restaurant restaurant={restaurants[2]} />
       <Restaurant restaurant={restaurants[3]} />
+    </div>
+  );
+};
+
+export const RestaurantPage2 = ({ restaurants }) => {
+
+  return (
+    <div>
+      <Restaurant2 restaurant={restaurants[0]} />
+      <Restaurant2 restaurant={restaurants[1]} />
+      <Restaurant2 restaurant={restaurants[2]} />
+      <Restaurant2 restaurant={restaurants[3]} />
     </div>
   );
 };
