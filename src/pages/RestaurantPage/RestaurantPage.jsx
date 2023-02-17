@@ -25,9 +25,9 @@ export const RestaurantPage = ({ restaurants }) => {
 
   return (
     <div>
-      <Restaurant restaurant={restaurants[0]} />
-      <Restaurant restaurant={restaurants[1]} />
-      <Restaurant restaurant={restaurants[2]} />
+      <Restaurant restaurant={restaurants[0]} /> <br />
+      <Restaurant restaurant={restaurants[1]} /> <br />
+      <Restaurant restaurant={restaurants[2]} /> <br />
       <Restaurant restaurant={restaurants[3]} />
     </div>
   );
