@@ -2,7 +2,7 @@ import React from "react";
 import { Restaurant } from "../../components/Restaurant/Restaurant";
 
 export const RestaurantPage = ({ restaurants }) => {
-  //   const { name, menu, reviews } = restaurants[0];
+    // const { name, menu, reviews } = restaurants[0];
 
   //   const restaurantDishes = menu.map(({ name }) => name).join(" ,");
   //   const restaurantReviews = reviews.map(({ text }) => text).join(" ,");
@@ -31,4 +31,13 @@ export const RestaurantPage = ({ restaurants }) => {
       <Restaurant restaurant={restaurants[3]} />
     </div>
   );
+
+  // return React.createElement('div', {
+  //   children: [
+  //     React.createElement(Restaurant, { restaurant: restaurants[0] }),
+  //     React.createElement(Restaurant, { restaurant: restaurants[1] }),
+  //     React.createElement(Restaurant, { restaurant: restaurants[2] }),
+  //     React.createElement(Restaurant, { restaurant: restaurants[3] })
+  //   ],
+  // })
 };

@@ -1,0 +1,90 @@
+{
+    "sourceFile": "src/components/Menu/Menu.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1676661634455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1676661639909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import React from \"react\";\n \n export const Menu = () => {\n-  return <div>\n-    \n-  </div>;\n+  return (\n+    <div>\n+      <h3>Menu</h3>\n+    </div>\n+  )\n };\n"
+                },
+                {
+                    "date": 1676661650392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,8 @@\n export const Menu = () => {\n   return (\n     <div>\n       <h3>Menu</h3>\n+      <div>{restaurantDishes}</div>\n     </div>\n   )\n };\n"
+                },
+                {
+                    "date": 1676661677250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import React from \"react\";\n \n export const Menu = () => {\n+  const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n   return (\n     <div>\n       <h3>Menu</h3>\n       <div>{restaurantDishes}</div>\n"
+                },
+                {
+                    "date": 1676661683207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from \"react\";\n \n-export const Menu = () => {\n+export const Menu = (menu) => {\n   const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n+\n   return (\n     <div>\n       <h3>Menu</h3>\n       <div>{restaurantDishes}</div>\n"
+                },
+                {
+                    "date": 1676661915184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n \n export const Menu = (menu) => {\n-  const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n+  const restaurantDishes = menu.menu.map(({ name }) => name).join(' ,')\n \n   return (\n     <div>\n       <h3>Menu</h3>\n"
+                },
+                {
+                    "date": 1676662090171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n \n export const Menu = (menu) => {\n-  const restaurantDishes = menu.menu.map(({ name }) => name).join(' ,')\n+  const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n \n   return (\n     <div>\n       <h3>Menu</h3>\n"
+                },
+                {
+                    "date": 1676662984198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import React from \"react\";\n \n-export const Menu = (menu) => {\n+export const Menu = ({menu}) => {\n   const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n \n-  return (\n-    <div>\n-      <h3>Menu</h3>\n-      <div>{restaurantDishes}</div>\n-    </div>\n-  )\n+  // return (\n+  //   <div>\n+  //     <h3>Menu</h3>\n+  //     <div>{restaurantDishes}</div>\n+  //   </div>\n+  // )\n };\n"
+                },
+                {
+                    "date": 1676662998583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,13 @@\n   //     <h3>Menu</h3>\n   //     <div>{restaurantDishes}</div>\n   //   </div>\n   // )\n+  return React.createElement('div', {\n+    children: [\n+      React.createElement(Restaurant, { restaurant: restaurants[0] }),\n+      React.createElement(Restaurant, { restaurant: restaurants[1] }),\n+      React.createElement(Restaurant, { restaurant: restaurants[2] }),\n+      React.createElement(Restaurant, { restaurant: restaurants[3] }),\n+    ],\n+  })\n };\n"
+                },
+                {
+                    "date": 1676663009000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   </div>\n   // )\n   return React.createElement('div', {\n     children: [\n-      React.createElement(Restaurant, { restaurant: restaurants[0] }),\n+      React.createElement(\"h3\", { restaurant: restaurants[0] }),\n       React.createElement(Restaurant, { restaurant: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n"
+                },
+                {
+                    "date": 1676663014798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   </div>\n   // )\n   return React.createElement('div', {\n     children: [\n-      React.createElement(\"h3\", { restaurant: restaurants[0] }),\n+      React.createElement(\"h3\",  }),\n       React.createElement(Restaurant, { restaurant: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n"
+                },
+                {
+                    "date": 1676663020404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   </div>\n   // )\n   return React.createElement('div', {\n     children: [\n-      React.createElement(\"h3\",  }),\n+      React.createElement(\"h3\", children: \"\" }),\n       React.createElement(Restaurant, { restaurant: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n"
+                },
+                {
+                    "date": 1676663025927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   </div>\n   // )\n   return React.createElement('div', {\n     children: [\n-      React.createElement(\"h3\", children: \"\" }),\n+      React.createElement(\"h3\", children: \"Menu\"),\n       React.createElement(Restaurant, { restaurant: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n"
+                },
+                {
+                    "date": 1676663042413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n   //   </div>\n   // )\n   return React.createElement('div', {\n     children: [\n-      React.createElement(\"h3\", children: \"Menu\"),\n-      React.createElement(Restaurant, { restaurant: restaurants[1] }),\n+      React.createElement('h3', { children: 'Menu' }),\n+      React.createElement('div', { restaurant: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n   })\n"
+                },
+                {
+                    "date": 1676663050939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   // )\n   return React.createElement('div', {\n     children: [\n       React.createElement('h3', { children: 'Menu' }),\n-      React.createElement('div', { restaurant: restaurants[1] }),\n+      React.createElement('div', { children: restaurants[1] }),\n       React.createElement(Restaurant, { restaurant: restaurants[2] }),\n       React.createElement(Restaurant, { restaurant: restaurants[3] }),\n     ],\n   })\n"
+                },
+                {
+                    "date": 1676663057067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,8 @@\n   // )\n   return React.createElement('div', {\n     children: [\n       React.createElement('h3', { children: 'Menu' }),\n-      React.createElement('div', { children: restaurants[1] }),\n-      React.createElement(Restaurant, { restaurant: restaurants[2] }),\n-      React.createElement(Restaurant, { restaurant: restaurants[3] }),\n+      React.createElement('div', { children: restaurantDishes }),\n     ],\n   })\n };\n"
+                },
+                {
+                    "date": 1676663179944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n \n-export const Menu = ({menu}) => {\n-  const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n+export const Menu = ({ children }) => {\n+  const restaurantDishes = children.map(({ name }) => name).join(' ,')\n \n   // return (\n   //   <div>\n   //     <h3>Menu</h3>\n@@ -14,5 +14,5 @@\n       React.createElement('h3', { children: 'Menu' }),\n       React.createElement('div', { children: restaurantDishes }),\n     ],\n   })\n-};\n+}\n"
+                },
+                {
+                    "date": 1676663250598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\n \n-export const Menu = ({ children }) => {\n+export const Menu = ({ meu }) => {\n   const restaurantDishes = children.map(({ name }) => name).join(' ,')\n \n   // return (\n   //   <div>\n"
+                },
+                {
+                    "date": 1676663311315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n import React from \"react\";\n \n-export const Menu = ({ meu }) => {\n-  const restaurantDishes = children.map(({ name }) => name).join(' ,')\n+export const Menu = ({ menu }) => {\n+  const restaurantDishes = menu.map(({ name }) => name).join(' ,')\n \n   // return (\n   //   <div>\n   //     <h3>Menu</h3>\n   //     <div>{restaurantDishes}</div>\n   //   </div>\n   // )\n-  return React.createElement('div', {\n-    children: [\n-      React.createElement('h3', { children: 'Menu' }),\n-      React.createElement('div', { children: restaurantDishes }),\n-    ],\n-  })\n+  // return React.createElement('div', {\n+  //   children: [\n+  //     React.createElement('h3', { children: 'Menu' }),\n+  //     React.createElement('div', { children: restaurantDishes }),\n+  //   ],\n+  // })\n }\n"
+                }
+            ],
+            "date": 1676661634455,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\n\nexport const Menu = () => {\n  return <div>\n    \n  </div>;\n};\n"
+        }
+    ]
+}

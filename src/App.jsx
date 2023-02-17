@@ -8,4 +8,6 @@ export const App = () => {
       <RestaurantPage restaurants={restaurants} />
     </div>
   );
+
+  // return React.createElement(RestaurantPage, { restaurants: restaurants })
 };
