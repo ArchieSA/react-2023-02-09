@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react'
 
-export const Menu = () => {
-  return <div>Menu</div>;
-};
+export const Menu = ({ menu }) => {
+  return React.createElement('div', {
+    children: [
+      React.createElement('h3', { children: 'Menu' }),
+      React.createElement('div', { children: menu }),
+    ],
+  })
+}
