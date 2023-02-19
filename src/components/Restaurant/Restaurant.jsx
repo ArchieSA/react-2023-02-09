@@ -1,5 +1,16 @@
 import React from "react";
 
-export const Restaurant = () => {
-  return <div>Restaurant</div>;
+import { Menu } from "../Menu/Menu";
+import { Reviews } from "../Reviews/Reviews";
+
+export const Restaurant = ({ restaurant }) => {
+  const { name, menu, reviews } = restaurant;
+
+  return (
+    <div>
+      <h2>{ name }</h2>
+      <Menu menu={menu} />
+      <Reviews reviews={reviews} />
+    </div>
+  );
 };
