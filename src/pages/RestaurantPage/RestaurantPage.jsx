@@ -1,7 +1,7 @@
 import React from "react";
 import { Restaurant } from "../../components/Restaurant/Restaurant";
 
-export const RestaurantPage = ({ restaurants }) => {
+export const RestaurantPage = ({restaurants}) => {
   //   const { name, menu, reviews } = restaurants[0];
 
   //   const restaurantDishes = menu.map(({ name }) => name).join(" ,");
@@ -25,7 +25,7 @@ export const RestaurantPage = ({ restaurants }) => {
 
   return (
     <div>
-      <Restaurant restaurant={restaurants[0]} />
+      <Restaurant restaurant={restaurants[0]}/>
       <Restaurant restaurant={restaurants[1]} />
       <Restaurant restaurant={restaurants[2]} />
       <Restaurant restaurant={restaurants[3]} />
