@@ -4,8 +4,8 @@ import { RestaurantPage } from "./pages/RestaurantPage/RestaurantPage";
 
 export const App = () => {
   return (
-    <div>
+    <>
       <RestaurantPage restaurants={restaurants} />
-    </div>
+    </>
   );
 };
