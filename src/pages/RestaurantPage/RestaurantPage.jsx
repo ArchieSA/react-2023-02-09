@@ -1,34 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Restaurant } from "../../components/Restaurant/Restaurant";
+import { Tabs } from "../../components/Tabs/Tabs";
+import { transformRestaurantsToTabs } from "../../utils/transformRestaurantsToTabs";
 
 export const RestaurantPage = ({ restaurants }) => {
-  //   const { name, menu, reviews } = restaurants[0];
+  const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0);
+  const activeRestaurant = restaurants[activeRestaurantIndex];
 
-  //   const restaurantDishes = menu.map(({ name }) => name).join(" ,");
-  //   const restaurantReviews = reviews.map(({ text }) => text).join(" ,");
-
-  //   return (
-  //     <div>
-  //       <div>
-  //         <h2>{name}</h2>
-  //         <div>
-  //           <h3>Menu</h3>
-  //           <div>{restaurantDishes}</div>
-  //         </div>
-  //         <div>
-  //           <h3>Reviews</h3>
-  //           <div>{restaurantReviews}</div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
+  if (!activeRestaurant) {
+    return null;
+  }
 
   return (
     <div>
-      <Restaurant restaurant={restaurants[0]} />
-      <Restaurant restaurant={restaurants[1]} />
-      <Restaurant restaurant={restaurants[2]} />
-      <Restaurant restaurant={restaurants[3]} />
+      <Tabs
+        tabs={transformRestaurantsToTabs(restaurants)}
+        activeIndex={activeRestaurantIndex}
+        onTabClick={setActiveRestaurantIndex}
+      />
+      <Restaurant restaurant={activeRestaurant} />
     </div>
   );
 };
