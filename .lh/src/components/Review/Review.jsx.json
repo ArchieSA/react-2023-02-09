@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/components/Review/Review.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1677423285923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677423349549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import React from \"react\";\n \n export const Review = ({ user, text, rating }) => {\n   return (\n-    <>\n+    <div>\n       <div>{user}</div>\n       <div>{text}</div>\n       <div>{rating}</div>\n-    </>\n+    </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1677423556990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\n \n-export const Review = ({ user, text, rating }) => {\n+export const Review = ({ rev}) => {\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n"
+                },
+                {
+                    "date": 1677423565037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import React from \"react\";\n \n-export const Review = ({ rev}) => {\n+export const Review = ({ review: { user, text, rating } }) => {\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n       <div>{rating}</div>\n     </div>\n-  );\n-};\n+  )\n+}\n"
+                },
+                {
+                    "date": 1677425850975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\n \n-export const Review = ({ review: { user, text, rating } }) => {\n+export const Review = ({ review }) => {\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n"
+                },
+                {
+                    "date": 1677425863082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import React from \"react\";\n \n export const Review = ({ review }) => {\n+  const  { user, text, rating } = rev\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n"
+                },
+                {
+                    "date": 1677425925919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n \n-export const Review = ({ review }) => {\n-  const  { user, text, rating } = rev\n+export const Review = ({ reveiw }) => {\n+  const { user, text, rating } = review\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n"
+                },
+                {
+                    "date": 1677425937312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n \n-export const Review = ({ reveiw }) => {\n-  const { user, text, rating } = review\n+export const Review = ({ reviw }) => {\n+  const { user, text, rating } = reveiw\n   return (\n     <div>\n       <div>{user}</div>\n       <div>{text}</div>\n"
+                },
+                {
+                    "date": 1677425946759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\n \n-export const Review = ({ reviw }) => {\n+export const Review = ({ review }) => {\n   const { user, text, rating } = reveiw\n   return (\n     <div>\n       <div>{user}</div>\n"
+                }
+            ],
+            "date": 1677423285923,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\n\nexport const Review = ({ user, text, rating }) => {\n  return (\n    <>\n      <div>{user}</div>\n      <div>{text}</div>\n      <div>{rating}</div>\n    </>\n  );\n};\n"
+        }
+    ]
+}
