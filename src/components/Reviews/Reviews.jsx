@@ -10,7 +10,7 @@ export const Reviews = ({ reviews }) => {
           (reveiw) =>
             !!reveiw && (
               <li>
-                <Review reveiw={reveiw} />
+                <Review review={reveiw} />
               </li>
             )
         )}
