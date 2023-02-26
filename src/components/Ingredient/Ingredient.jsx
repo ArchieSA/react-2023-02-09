@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "../Button/Button";
+import { Counter } from "../Counter/Counter";
 
 export const Ingredient = ({ name }) => {
   const [amount, setAmount] = useState(1);
 
   return (
     <div>
-      {name}{" "}
-      <Button
-        onClick={() => setAmount(amount - 1)}
-        disabled={amount <= 0}
-        children="-"
-      />{" "}
-      {amount}{" "}
-      <Button
-        onClick={() => setAmount(amount + 1)}
-        disabled={amount >= 6}
-        children="+"
-      />
+      <span> {name} </span>
+      <Counter amount={amount} setAmount={setAmount} />
     </div>
   );
 };
