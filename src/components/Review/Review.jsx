@@ -1,6 +1,8 @@
 import React from "react";
 
-export const Review = ({ user, text, rating }) => {
+export const Review = ({ reveiw }) => {
+  const { user, text, rating } = reveiw;
+
   return (
     <div>
       <div>{user}</div>
