@@ -1,14 +1,20 @@
 import React from "react";
 
-export const Reviews = ({ review }) => {
-  const { id, user, text, rating } = review;
+export const Reviews = ({ reviews }) => {
   return (
-    <div className="reviews" key={id}>
-      <h5 className="user">{user}</h5>
-      <div className="review-rate">
-        <p>{text}</p>
-        <p className="rate">{rating} &#9733;</p>
-      </div>
+    <div className="reviews">
+      <h2>Reviews</h2>
+      <hr />
+      {reviews.map(({ id, user, text, rating }) => {
+        return (
+          <div key={id}>
+            <h3>{user}</h3>
+            <span>
+              {text}, my rating is {rating}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 };

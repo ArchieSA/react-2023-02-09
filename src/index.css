@@ -3,78 +3,91 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.restaurant-items {
-  max-width: 1440px;
-  margin: 0px auto;
-  padding: 10px;
-  box-sizing: border-box;
+.restaurantPage {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
-  border: 2px solid green;
-}
-
-.restaurant-item {
-  width: 45%;
-  padding: 10px;
-  border: 3px solid rgba(128, 128, 128, 0.76);
-  border-radius: 10px;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.Reviews {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
+  align-items: center;
   justify-content: center;
-  padding: 10px;
-  background-color: rgba(128, 128, 128, 0.329);
-  border: 3px solid rgba(128, 128, 128, 0.76)
+  gap: 10px;
 }
 
-.review-rate {
+.restaurant {
   border-radius: 10px;
+  background-color: #FBAB7E;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  padding: 15px;
+  width: 47%;
+  min-height: 850px;
+}
+
+.dish {
+  margin-bottom: 10px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.user {
-  margin: 0px;
-  font-size: 20px;
-  padding: 10px;
-  color: white;
+  background-color: white;
   border-radius: 10px;
-  font-weight: 400;
-  background-color: seagreen;
+  border: 1px solid rgba(0, 0, 0, 0.253);
 }
 
-.title {
-  background-color: seagreen;
-  color: white;
+.dish_counter {
+  width: 110px;
   padding: 5px;
-  border-radius: 10px;
-  width: 50%;
-}
-
-.rate {
-  margin: 0px;
-  width: 35px;
-  height: 35px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  font-size: 18px;
-  color: seagreen;
+  justify-content: space-between;
+  border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-  .restaurant-item {
-    width: 100%;
-  }
+.dish_counter button {
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  background-color: #FAACA8;
+  background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.dish_counter span {
+  font-size: 20px;
+}
+
+.ingredient_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.ingredient_counter {
+  width: 80px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.ingredient_counter button {
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  cursor: pointer;
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  
+  font-size: 20px;
+}
+
+.reviews {
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  padding: 10px;
+  padding-top: 0;
+  border-radius: 10px;
+  background-color: white;
 }

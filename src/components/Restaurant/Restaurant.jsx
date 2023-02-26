@@ -3,20 +3,15 @@ import { Menu } from "../Menu/Menu";
 import { Reviews } from "../Reviews/Reviews";
 
 export const Restaurant = ({ restaurant }) => {
-  const { name, id, menu, reviews } = restaurant;
-
+  const { id, name, menu, reviews } = restaurant;
   return (
-    <div key={id} className="restaurant-item">
-      <h1 className="title">{name}</h1>
-      <div className="Menu">
-        {menu.map((menuItem) => (
-          <Menu key={menuItem.id} menuItem={menuItem} />
-        ))}
+    <div key={id}>
+      <h2>{name}</h2>
+      <div className="menu">
+        <Menu menu={menu} />
       </div>
-      <div className="Reviews">
-        {reviews.map((review) => (
-          <Reviews key={review.id} review={review} />
-        ))}
+      <div className="review">
+        <Reviews reviews={reviews} />
       </div>
     </div>
   );

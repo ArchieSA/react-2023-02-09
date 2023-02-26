@@ -1,20 +1,16 @@
 import React from "react";
+import { Dish } from "./Dish";
 
-export const Menu = ({ menuItem }) => {
-  console.log(menuItem, "menuItem");
-  const { id, name, price, ingredients } = menuItem;
-
+export const Menu = ({ menu }) => {
   return (
-    <div key={id}>
-      <h3> Название блюда: {name}</h3>
-      <p> Цена блюда: {price}$</p>
-      <p>
-        Состав :
-        {ingredients.map((ingredient) => (
-          <li>{ingredient}</li>
-        ))}
-        <hr />
-      </p>
+    <div>
+      {menu.map(({ id, ingredients, name, price }) => {
+        return (
+          <div key={id}>
+            <Dish ingredients={ingredients} name={name} price={price} />
+          </div>
+        );
+      })}
     </div>
   );
 };
