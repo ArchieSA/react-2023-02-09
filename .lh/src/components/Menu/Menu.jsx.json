@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/Menu/Menu.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1677421286126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677421295519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div>\n       <h3>Menu</h3>\n       <ul>\n         {menu.map(({ dish }) => (\n-          <li>{name}</li>\n+          <li>Di</li>\n         ))}\n       </ul>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1677421302673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div>\n       <h3>Menu</h3>\n       <ul>\n         {menu.map(({ dish }) => (\n-          <li>Di</li>\n+          <li><Dish /Dish></li>\n         ))}\n       </ul>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1677421308527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div>\n       <h3>Menu</h3>\n       <ul>\n         {menu.map(({ dish }) => (\n-          <li><Dish /Dish></li>\n+          <li><Dish dish={}/></li>\n         ))}\n       </ul>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1677421321260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div>\n       <h3>Menu</h3>\n       <ul>\n         {menu.map(({ dish }) => (\n-          <li><Dish dish={}/></li>\n+          <li><Dis dish={dish} /></li>\n         ))}\n       </ul>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1677422383754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import React from \"react\";\n+import { Dish } from \"../Dish/Dish\";\n \n export const Menu = ({ menu }) => {\n   return (\n     <div>\n       <h3>Menu</h3>\n       <ul>\n-        {menu.map(({ dish }) => (\n-          <li><Dis dish={dish} /></li>\n+        {menu.map((dish }) => (\n+          <li><Dish dish={dish} /></li>\n         ))}\n       </ul>\n     </div>\n   );\n"
+                }
+            ],
+            "date": 1677421286126,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\n\nexport const Menu = ({ menu }) => {\n  return (\n    <div>\n      <h3>Menu</h3>\n      <ul>\n        {menu.map(({ dish }) => (\n          <li>{name}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/Reviews/Reviews.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1677423258036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677423271303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Review } from \"../Review/Review\";\n \n export const Reviews = ({ reviews }) => {\n   return (\n-    <>\n+    <div>\n       <h3>Reviews</h3>\n       <ul>\n         {reviews.map(\n           (reveiw) =>\n@@ -14,7 +14,7 @@\n               </li>\n             )\n         )}\n       </ul>\n-    </>\n+    </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1677423374486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n       <h3>Reviews</h3>\n       <ul>\n         {reviews.map(\n           (reveiw) =>\n-            !!reveiw && (\n               <li>\n                 <Review reveiw={reveiw} />\n               </li>\n             )\n"
+                },
+                {
+                    "date": 1677423382100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n       <h3>Reviews</h3>\n       <ul>\n         {reviews.map(\n           (reveiw) =>\n+            !!reveiw && (\n               <li>\n                 <Review reveiw={reveiw} />\n               </li>\n             )\n"
+                },
+                {
+                    "date": 1677425955274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,12 @@\n         {reviews.map(\n           (reveiw) =>\n             !!reveiw && (\n               <li>\n-                <Review reveiw={reveiw} />\n+                <Review review={reveiw} />\n               </li>\n             )\n         )}\n       </ul>\n     </div>\n-  );\n+  )\n };\n"
+                },
+                {
+                    "date": 1677425960988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,12 @@\n     <div>\n       <h3>Reviews</h3>\n       <ul>\n         {reviews.map(\n-          (reveiw) =>\n-            !!reveiw && (\n+          (review) =>\n+            !!review && (\n               <li>\n-                <Review review={reveiw} />\n+                <Review review={review} />\n               </li>\n             )\n         )}\n       </ul>\n"
+                }
+            ],
+            "date": 1677423258036,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { Review } from \"../Review/Review\";\n\nexport const Reviews = ({ reviews }) => {\n  return (\n    <>\n      <h3>Reviews</h3>\n      <ul>\n        {reviews.map(\n          (reveiw) =>\n            !!reveiw && (\n              <li>\n                <Review reveiw={reveiw} />\n              </li>\n            )\n        )}\n      </ul>\n    </>\n  );\n};\n"
+        }
+    ]
+}

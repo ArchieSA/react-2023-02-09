@@ -1,0 +1,142 @@
+{
+    "sourceFile": "src/components/Ingredient/Ingredient.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 31,
+            "patches": [
+                {
+                    "date": 1677426655097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677426739099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react'\n \n export const Ingredient = ({items}) => {\n   return (\n-    <div>Ingredient</div>\n+    <div></div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677426746435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import React from 'react'\n \n export const Ingredient = ({items}) => {\n   return (\n-    <div></div>\n+    <div>\n+      {items.}\n+    </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677426752339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \n export const Ingredient = ({items}) => {\n   return (\n     <div>\n-      {items.}\n+      {items.map(item)}\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677426758734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \n export const Ingredient = ({items}) => {\n   return (\n     <div>\n-      {items.map(item)}\n+      {items.map(item => )}\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677426774674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \n export const Ingredient = ({items}) => {\n   return (\n     <div>\n-      {items.map(item => )}\n+      \n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677426836459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,5 @@\n import React from 'react'\n \n-export const Ingredient = ({items}) => {\n-  return (\n-    <div>\n-      \n-    </div>\n-  )\n+export const Ingredient = ({ ingredient }) => {\n+  return <div></div>\n }\n"
+                },
+                {
+                    "date": 1677426868473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import React from 'react'\n \n export const Ingredient = ({ ingredient }) => {\n-  return <div></div>\n+  return <div>{ingredient}</div>\n }\n"
+                },
+                {
+                    "date": 1677426932611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react'\n+import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n   return <div>{ingredient}</div>\n }\n"
+                },
+                {
+                    "date": 1677426991771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,22 @@\n import React from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-  return <div>{ingredient}</div>\n+  return (\n+    <div>\n+      <Button\n+        onClick={() => setCountDish(countDish + 1)}\n+        disabled={countDish >= MAXCOUNT}\n+      >\n+        +\n+      </Button>\n+      <span>{countDish}</span>\n+      <Button\n+        onClick={() => setCountDish(countDish - 1)}\n+        disabled={countDish <= MINCOUNT}\n+      >\n+        -\n+      </Button>\n+    </div>\n+  )\n }\n"
+                },
+                {
+                    "date": 1677426996869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n+  con\n   return (\n     <div>\n       <Button\n         onClick={() => setCountDish(countDish + 1)}\n"
+                },
+                {
+                    "date": 1677427004282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import React from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-  con\n+   const { name, price, ingredients } = dish\n+   const [countDish, setCountDish] = useState(0)\n+   const MINCOUNT = 0\n+   const MAXCOUNT = 6\n   return (\n     <div>\n       <Button\n         onClick={() => setCountDish(countDish + 1)}\n"
+                },
+                {
+                    "date": 1677427010345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n import React from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-   const { name, price, ingredients } = dish\n-   const [countDish, setCountDish] = useState(0)\n+   const [count, setCountDish] = useState(0)\n    const MINCOUNT = 0\n    const MAXCOUNT = 6\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1677427016869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-   const [count, setCountDish] = useState(0)\n+   const [countIngredient, setCountDish] = useState(0)\n    const MINCOUNT = 0\n    const MAXCOUNT = 6\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1677427029486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-import React from 'react'\n+import React { useState} from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-   const [countIngredient, setCountDish] = useState(0)\n+   const [countIngredient, setCountIngredient] = useState(0)\n    const MINCOUNT = 0\n    const MAXCOUNT = 6\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1677427037881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React { useState} from 'react'\n+import React {useState } from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n    const [countIngredient, setCountIngredient] = useState(0)\n"
+                },
+                {
+                    "date": 1677427048705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n-import React {useState } from 'react'\n+import React, { useState } from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-   const [countIngredient, setCountIngredient] = useState(0)\n-   const MINCOUNT = 0\n-   const MAXCOUNT = 6\n+  const [countIngredient, setCountIngredient] = useState(0)\n+  const MINCOUNT = 0\n+  const MAXCOUNT = 6\n   return (\n     <div>\n       <Button\n         onClick={() => setCountDish(countDish + 1)}\n"
+                },
+                {
+                    "date": 1677427059813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   return (\n     <div>\n       <Button\n         onClick={() => setCountDish(countDish + 1)}\n-        disabled={countDish >= MAXCOUNT}\n+        disabled={countIngredient >= MAXCOUNT}\n       >\n         +\n       </Button>\n       <span>{countDish}</span>\n"
+                },
+                {
+                    "date": 1677427065677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,12 @@\n         disabled={countIngredient >= MAXCOUNT}\n       >\n         +\n       </Button>\n-      <span>{countDish}</span>\n+      <span>{countIngredient}</span>\n       <Button\n-        onClick={() => setCountDish(countDish - 1)}\n-        disabled={countDish <= MINCOUNT}\n+        onClick={() => setCountDish(countIngredient - 1)}\n+        disabled={countIngredient <= MINCOUNT}\n       >\n         -\n       </Button>\n     </div>\n"
+                },
+                {
+                    "date": 1677427077363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   const MAXCOUNT = 6\n   return (\n     <div>\n       <Button\n-        onClick={() => setCountDish(countDish + 1)}\n+        onClick={() => setCountIngredient(countDish + 1)}\n         disabled={countIngredient >= MAXCOUNT}\n       >\n         +\n       </Button>\n"
+                },
+                {
+                    "date": 1677427086641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,16 @@\n   const MAXCOUNT = 6\n   return (\n     <div>\n       <Button\n-        onClick={() => setCountIngredient(countDish + 1)}\n+        onClick={() => setCountIngredient(countIngredient + 1)}\n         disabled={countIngredient >= MAXCOUNT}\n       >\n         +\n       </Button>\n       <span>{countIngredient}</span>\n       <Button\n-        onClick={() => setCountDish(countIngredient - 1)}\n+        onClick={() => setCountIngredient(countIngredient - 1)}\n         disabled={countIngredient <= MINCOUNT}\n       >\n         -\n       </Button>\n"
+                },
+                {
+                    "date": 1677427116364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from 'react'\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n-  const [countIngredient, setCountIngredient] = useState(0)\n+  const [countIngredient, setCountIngredient] = useState(1)\n   const MINCOUNT = 0\n   const MAXCOUNT = 6\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1677427275531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   const MINCOUNT = 0\n   const MAXCOUNT = 6\n   return (\n     <div>\n+      {}\n       <Button\n         onClick={() => setCountIngredient(countIngredient + 1)}\n         disabled={countIngredient >= MAXCOUNT}\n       >\n"
+                },
+                {
+                    "date": 1677427549706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,13 @@\n import { Button } from '../Button/Button'\n \n export const Ingredient = ({ ingredient }) => {\n   const [countIngredient, setCountIngredient] = useState(1)\n-  const MINCOUNT = 0\n+  const MINCOUNT = 1\n   const MAXCOUNT = 6\n   return (\n     <div>\n-      {}\n+      {ingredient}\n       <Button\n         onClick={() => setCountIngredient(countIngredient + 1)}\n         disabled={countIngredient >= MAXCOUNT}\n       >\n"
+                },
+                {
+                    "date": 1677427775977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,20 +7,8 @@\n   const MAXCOUNT = 6\n   return (\n     <div>\n       {ingredient}\n-      <Button\n-        onClick={() => setCountIngredient(countIngredient + 1)}\n-        disabled={countIngredient >= MAXCOUNT}\n-      >\n-        +\n-      </Button>\n-      <span>{countIngredient}</span>\n-      <Button\n-        onClick={() => setCountIngredient(countIngredient - 1)}\n-        disabled={countIngredient <= MINCOUNT}\n-      >\n-        -\n-      </Button>\n+      <Counter minValue={0} maxValue={6} />\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677427782603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useState } from 'react'\n-import { Button } from '../Button/Button'\n+import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n   const [countIngredient, setCountIngredient] = useState(1)\n   const MINCOUNT = 1\n"
+                },
+                {
+                    "date": 1677427787785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,11 @@\n import React, { useState } from 'react'\n import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n-  const [countIngredient, setCountIngredient] = useState(1)\n-  const MINCOUNT = 1\n-  const MAXCOUNT = 6\n   return (\n     <div>\n       {ingredient}\n-      <Counter minValue={0} maxValue={6} />\n+      <Counter minValue={1} maxValue={6} />\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677427819360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, { useState } from 'react'\n+import React from 'react'\n import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n   return (\n"
+                },
+                {
+                    "date": 1677428300709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n export const Ingredient = ({ ingredient }) => {\n   return (\n     <div>\n       {ingredient}\n-      <Counter minValue={1} maxValue={6} />\n+      <Counter count=\"count\" onChange={setCount} minValue={0} maxValue={6} />\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677428323392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react'\n import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n+  const [count, setCount] = useState(0)\n   return (\n     <div>\n       {ingredient}\n       <Counter count=\"count\" onChange={setCount} minValue={0} maxValue={6} />\n"
+                },
+                {
+                    "date": 1677428330961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import React from 'react'\n import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n-  const [count, setCount] = useState(0)\n+  const [count, setCount] = useState(1)\n   return (\n     <div>\n       {ingredient}\n-      <Counter count=\"count\" onChange={setCount} minValue={0} maxValue={6} />\n+      <Counter count={count} onChange={setCount} minValue={0} maxValue={6} />\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1677428338876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React from 'react'\n+import React, { useState } from 'react'\n import { Counter } from '../Counter.jsx/Counter'\n \n export const Ingredient = ({ ingredient }) => {\n   const [count, setCount] = useState(1)\n"
+                }
+            ],
+            "date": 1677426655097,
+            "name": "Commit-0",
+            "content": "import React from 'react'\n\nexport const Ingredient = ({items}) => {\n  return (\n    <div>Ingredient</div>\n  )\n}\n"
+        }
+    ]
+}
