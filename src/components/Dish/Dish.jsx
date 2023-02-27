@@ -20,7 +20,7 @@ export const Dish = ({ dish: { ingredients, name } }) => {
                 <>
                     <h5>Ingredients:</h5>
                     <ul>
-                        {ingredients.map(x => <li><Ingredient ingredient={x} /></li>)}
+                        {ingredients.map(ingredient => <li><Ingredient ingredient={ingredient} /></li>)}
                     </ul>
                 </>
             )}

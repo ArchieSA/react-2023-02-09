@@ -8,13 +8,13 @@ export const Ingredient = ({ ingredient }) => {
     const [ingredientCount, setIngredientCount] = useState(1);
 
     return (
-        <>
+        <div>
             <div>{ingredient}</div>
             <Counter
                 onChange={setIngredientCount}
                 minValue={MIN_INGREDIENT_COUNT}
                 maxValue={MAX_INGREDIENT_COUNT}
                 value={ingredientCount} />
-        </>
+        </div>
     );
 };

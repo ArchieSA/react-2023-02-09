@@ -18,10 +18,10 @@ export const RestaurantPage = ({ restaurants }) => {
         activeIndex={activeRestaurantIndex}
         onTabClick={setActiveRestaurantIndex}
       />
-      {restaurants.map(x => (
+      {restaurants.map(restaurant => (
         <Restaurant
-          isShown={activeRestaurant === x}
-          restaurant={x} />
+          isShown={activeRestaurant === restaurant}
+          restaurant={restaurant} />
       ))}
     </div>
   );
