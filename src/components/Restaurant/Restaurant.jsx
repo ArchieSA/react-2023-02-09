@@ -2,7 +2,7 @@ import React from "react";
 import { Menu } from "../Menu/Menu";
 import { Reviews } from "../Reviews/Reviews";
 
-export const Restaurant = ({ restaurant }) => {
+export const Restaurant = ({ restaurant, isShown }) => {
   if (!restaurant) {
     return null;
   }
@@ -10,7 +10,7 @@ export const Restaurant = ({ restaurant }) => {
   const { name, menu, reviews } = restaurant;
 
   return (
-    <div>
+    <div style={{display: !isShown && 'none'}}>
       <h2>{name}</h2>
       {!!menu.length && <Menu menu={menu} />}
       {!!reviews.length && <Reviews reviews={reviews} />}

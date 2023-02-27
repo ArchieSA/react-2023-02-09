@@ -6,14 +6,9 @@ export const Reviews = ({ reviews }) => {
     <div>
       <h3>Reviews</h3>
       <ul>
-        {reviews.map(
-          (reveiw) =>
-            !!reveiw && (
-              <li>
-                <Review reveiw={reveiw} />
-              </li>
-            )
-        )}
+        {reviews.map(review => !!review && (
+          <li><Review review={review} /></li>
+        ))}
       </ul>
     </div>
   );

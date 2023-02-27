@@ -18,7 +18,11 @@ export const RestaurantPage = ({ restaurants }) => {
         activeIndex={activeRestaurantIndex}
         onTabClick={setActiveRestaurantIndex}
       />
-      <Restaurant restaurant={activeRestaurant} />
+      {restaurants.map(restaurant => (
+        <Restaurant
+          isShown={activeRestaurant === restaurant}
+          restaurant={restaurant} />
+      ))}
     </div>
   );
 };
