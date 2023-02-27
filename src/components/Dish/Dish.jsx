@@ -1,26 +1,21 @@
 import React, { useState } from "react";
-import { Button } from "../Button/Button";
+import { Counter } from "../Counter/Counter";
 import { Ingredient } from "../Ingredient/Ingredient";
 
 const MAX_DISHES_COUNT = 6;
 const MIN_DISHES_COUNT = 0
 
-export const Dish = ({ ingredients }) => {
+export const Dish = ({ dish: { ingredients, name } }) => {
     const [dishesCount, setDishesCount] = useState(0);
 
     return (
         <>
-            <Button
-                onClick={() => setDishesCount(dishesCount - 1)}
-                disabled={dishesCount === MIN_DISHES_COUNT}>
-                -
-            </Button>
-            <div>{dishesCount}</div>
-            <Button
-                onClick={() => setDishesCount(dishesCount + 1)}
-                disabled={dishesCount === MAX_DISHES_COUNT}>
-                +
-            </Button>
+            <h4>{name}</h4>
+            <Counter
+                onChange={setDishesCount}
+                minValue={MIN_DISHES_COUNT}
+                maxValue={MAX_DISHES_COUNT}
+                value={dishesCount} />
             {dishesCount > 0 && (
                 <>
                     <h5>Ingredients:</h5>

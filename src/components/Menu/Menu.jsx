@@ -6,10 +6,9 @@ export const Menu = ({ menu }) => {
     <div>
       <h3>Menu</h3>
       <ul>
-        {menu.map(({ name, ingredients }) => (
+        {menu.map(dish => !!dish && (
           <li>
-            <h4>{name}</h4>
-            <Dish ingredients={ingredients} />
+            <Dish dish={dish} />
           </li>
         ))}
       </ul>
