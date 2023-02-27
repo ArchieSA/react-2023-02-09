@@ -5,7 +5,7 @@ const MAX_INGREDIENT_COUNT = 6;
 const MIN_INGREDIENT_COUNT = 0
 
 export const Ingredient = ({ ingredient }) => {
-    const [ingredientCount, setIngredientCount] = useState(0);
+    const [ingredientCount, setIngredientCount] = useState(1);
 
     return (
         <>
