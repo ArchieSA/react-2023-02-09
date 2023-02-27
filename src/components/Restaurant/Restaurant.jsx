@@ -8,7 +8,6 @@ export const Restaurant = ({ restaurant }) => {
   }
 
   const { name, menu, reviews } = restaurant;
-
   return (
     <div>
       <h2>{name}</h2>
