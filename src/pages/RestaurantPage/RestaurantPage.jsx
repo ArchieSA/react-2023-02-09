@@ -21,8 +21,7 @@ export const RestaurantPage = ({ restaurants }) => {
       {restaurants.map(x => (
         <Restaurant
           isShown={activeRestaurant === x}
-          restaurant={x}
-          id={x.id} />
+          restaurant={x} />
       ))}
     </div>
   );
