@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from "./styles.module.css";
 import {Button} from "../Button/Button";
+
+import styles from "./styles.module.css";
 
 export const Star = ({rating, starImg, size, onChange}) => {
   return (

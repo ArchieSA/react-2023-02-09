@@ -8,12 +8,12 @@ import ImgStarGold from './img/star-gold.svg';
 const minValue = 1;
 const maxValue = 5;
 
-export const Rating = ({value = null, size, onChange = null}) => {
+export const Rating = ({value, size, onChange = null}) => {
   if (value < minValue || value > maxValue) return null;
 
   const stars = [...Array(maxValue).keys()].map(i => i + 1);
-  const starsGold = value ? stars.slice(0, value) : [];
-  const starsBlack = value ? stars.slice(value): stars;
+  const starsGold = stars.slice(0, value);
+  const starsBlack = stars.slice(value);
 
   const propsStarGold = {size, onChange, starImg: ImgStarGold};
   const propsStarBlack = {size, onChange, starImg: ImgStarBlack};
