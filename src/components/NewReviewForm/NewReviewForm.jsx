@@ -1,10 +1,12 @@
 import React, { useReducer } from "react";
 import { Button } from "../Button/Button";
+import {Rating} from "../Rating/Rating";
+import {SIZE} from "../../constants/size";
 
 const initialValue = {
   name: "",
   text: "",
-  rating: 0,
+  rating: 5,
 };
 
 const reducer = (state, action) => {
@@ -52,12 +54,10 @@ export const NewReviewForm = () => {
       </div>
       <div>
         <label>Rating</label>
-        <input
-          type="number"
+        <Rating
           value={formValue.rating}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
-          }
+          size={SIZE.l}
+          onChange={(rating) => dispatch({ type: "setRating", payload: rating })}
         />
       </div>
       <Button
