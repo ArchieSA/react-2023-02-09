@@ -6,11 +6,11 @@ import { BUTTON_VIEW_VARIANT } from "../Button/constants";
 import { Ingredient } from "../Ingredient/Ingredient";
 
 import { ReactComponent as Plus } from "./img/thumb-up.svg";
+// import Plus  from "./img/thumb-up.svg";
 
 import styles from "./styles.module.css";
 
 export const Dish = ({ dish }) => {
-  console.log(styles);
   const { count, increment, decrement } = useCount({ max: 6 });
 
   if (!dish) {
