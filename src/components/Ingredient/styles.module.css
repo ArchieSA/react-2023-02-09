@@ -1,7 +1,5 @@
-.root {
+
+.ingredient {
     display: flex;
     align-items: center;
-}
-.item {
-    margin: 0 5px 0 0;
 }

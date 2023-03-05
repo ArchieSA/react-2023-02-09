@@ -13,7 +13,16 @@ code {
 }
 
 :root {
-  --red-color: red;
   --black-color: black;
   --default-padding: 24px;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 20px 60px;
+}
+.list {
+  list-style-type: none ;
+  margin: 0;
+  padding: 0;
 }

@@ -4,7 +4,7 @@ import { RestaurantPage } from "./pages/RestaurantPage/RestaurantPage";
 
 export const App = () => {
   return (
-    <div>
+    <div className="container">
       <RestaurantPage restaurants={restaurants} />
     </div>
   );

@@ -15,15 +15,15 @@
 }
 
 .m {
-    min-width: 28px;
-    height: 28px;
+    min-width: 30px;
+    height: 32px;
     padding: 4px;
 }
 
 .l {
-    min-width: 32px;
-    height: 32px;
-    padding: 6px;
+    min-width: 46px;
+    height: 48px;
+    padding: 6px 20px;
 }
 
 .primary {
