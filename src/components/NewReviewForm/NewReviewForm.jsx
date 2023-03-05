@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
+import { RATING_SIZE } from "../Rating/constants";
 
 const initialValue = {
   name: "",
@@ -36,34 +38,26 @@ export const NewReviewForm = () => {
         <label>Name</label>
         <input
           value={formValue.name}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setName", payload: value })
-          }
+          onChange={({ target: { value } }) => dispatch({ type: "setName", payload: value })}
         />
       </div>
       <div>
         <label>Text</label>
         <input
           value={formValue.text}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setText", payload: value })
-          }
+          onChange={({ target: { value } }) => dispatch({ type: "setText", payload: value })}
         />
       </div>
       <div>
         <label>Rating</label>
-        <input
-          type="number"
+        <Rating
+          size={RATING_SIZE["l"]}
           value={formValue.rating}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
-          }
+          onChange={(newRating) => dispatch({ type: "setRating", payload: newRating })}
         />
       </div>
-      <Button
-        onClick={submit}
-        disabled={!formValue.name || !formValue.text || !formValue.rating}
-      >
+
+      <Button onClick={submit} disabled={!formValue.name || !formValue.text || !formValue.rating}>
         Submit
       </Button>
     </div>

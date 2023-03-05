@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { Rating } from "../Rating/Rating";
 
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 export const Review = ({ review }) => {
+  const { user, text, rating } = review;
+  const [currentRating, setCurrentRating] = useState(rating);
+
   if (!review) {
     return null;
   }
 
-  const { user, text, rating } = review;
   return (
     <div className={styles.root}>
       <div>{user}</div>
       <div>{text}</div>
-      <div>{rating}</div>
+      <div>
+        <Rating value={currentRating} onChange={(newRating) => setCurrentRating(newRating)} size="s" />
+      </div>
     </div>
   );
 };
