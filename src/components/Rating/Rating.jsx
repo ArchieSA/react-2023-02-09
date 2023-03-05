@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 const MAX_RATING = 5;
 
 export const Rating = ({ value, onChange, size = SIZE.s }) => {
+    if (value === null) return;
+
     return (
         <div className={styles.root}>
             {Array.from(Array(MAX_RATING)).map((star, index) => (
