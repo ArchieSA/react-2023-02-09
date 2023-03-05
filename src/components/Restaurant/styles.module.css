@@ -1,0 +1,9 @@
+.root {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 10px 30px 1px #33333353;
+}
+.title {
+    text-align: center;
+}

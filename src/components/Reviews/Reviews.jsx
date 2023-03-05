@@ -6,7 +6,7 @@ export const Reviews = ({ reviews }) => {
   return (
     <div>
       <h3>Reviews</h3>
-      <ul>
+      <ul className="list">
         {reviews.map(
           (review) =>
             !!review && (
@@ -18,5 +18,5 @@ export const Reviews = ({ reviews }) => {
       </ul>
       <NewReviewForm />
     </div>
-  );
+  )
 };

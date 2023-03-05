@@ -1,0 +1,38 @@
+.rating {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.star {
+    margin: 0 5px;
+    border: 0;
+    background: none;
+    box-shadow: 0;
+    padding: 0;
+}
+.star svg path {
+    transition: fill .35s ease-in;
+}
+.click {
+    cursor: pointer;
+}
+.on svg path {
+    fill: #ffbe00;
+}
+.off svg path {
+   fill: #666;
+}
+.l > svg{
+    width: 64px;
+    height: 64px;
+}
+.m  > svg {
+    width: 32px;
+    height: 32px;
+}
+.s  > svg {
+    width: 24px;
+    height: 24px;
+}
