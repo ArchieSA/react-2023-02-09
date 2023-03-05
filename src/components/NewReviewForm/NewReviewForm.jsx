@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
 
 const initialValue = {
   name: "",
@@ -30,6 +31,8 @@ export const NewReviewForm = () => {
     console.log(Object.values(formValue).join(" "));
   };
 
+  const onChangeRating = (payload) => dispatch({ type: "setRating", payload });
+
   return (
     <div>
       <div>
@@ -52,13 +55,7 @@ export const NewReviewForm = () => {
       </div>
       <div>
         <label>Rating</label>
-        <input
-          type="number"
-          value={formValue.rating}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
-          }
-        />
+        <Rating value={formValue.rating} onChange={onChangeRating} />
       </div>
       <Button
         onClick={submit}
