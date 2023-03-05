@@ -1,6 +1,7 @@
 import React from "react";
+import { Rating } from "../Rating/Rating";
 
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 export const Review = ({ review }) => {
   if (!review) {
@@ -12,7 +13,7 @@ export const Review = ({ review }) => {
     <div className={styles.root}>
       <div>{user}</div>
       <div>{text}</div>
-      <div>{rating}</div>
+      <Rating value={rating} size="s" />
     </div>
   );
 };

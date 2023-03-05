@@ -1,0 +1,23 @@
+.rating-container {
+    display: flex;
+    gap: 5px;
+}
+.s {
+    width: 12px;
+    height: 12px;
+
+}
+
+.m {
+    width: 16px;
+    height: 16px;
+}
+
+.l {
+    width: 20px;
+    height: 20px;
+}
+
+.pointer {
+    cursor: pointer;
+}
