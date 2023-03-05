@@ -1,0 +1,11 @@
+.root{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.margin-left{
+    margin-left: 5px;
+}

@@ -1,3 +1,18 @@
 .root {
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 
+.user{
+    display: flex;
+    flex-direction: row;
+}
+
+.text{
+    min-width: 100%;
+    padding: 20px 5px;
+    border: 1px dotted black;
 }

@@ -1,0 +1,37 @@
+.root{
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-color: transparent;
+}
+
+.active:hover{
+    cursor: pointer;
+}
+
+.s {
+    min-width: 10px;
+    height: 10px;
+    padding: 1px;
+}
+
+.m {
+    min-width: 16px;
+    height: 16px;
+    padding: 2px;
+}
+
+.l {
+    min-width: 22px;
+    height: 22px;
+    padding: 3px;
+}
+
+.gold{
+    background-image: url("./img/star-gold.svg");
+}
+
+.grey{
+    background-image: url("./img/star.svg");
+}

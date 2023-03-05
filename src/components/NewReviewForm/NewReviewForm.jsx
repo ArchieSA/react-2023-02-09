@@ -1,5 +1,8 @@
+import classNames from "classnames";
 import React, { useReducer } from "react";
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
+import styles from "./styles.module.css";
 
 const initialValue = {
   name: "",
@@ -50,14 +53,13 @@ export const NewReviewForm = () => {
           }
         />
       </div>
-      <div>
+      <div className={classNames(styles.formRating)}>
         <label>Rating</label>
-        <input
-          type="number"
-          value={formValue.rating}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
-          }
+        <Rating 
+          value={formValue.rating} 
+          size="l" 
+          onChange={(value) => dispatch({ type: "setRating", payload: value })}
+          margin="margin-left"
         />
       </div>
       <Button
