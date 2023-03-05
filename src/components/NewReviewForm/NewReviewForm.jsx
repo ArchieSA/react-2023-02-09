@@ -1,5 +1,10 @@
 import React, { useReducer } from "react";
+import { SIZE } from "../../constants/size";
+
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
+
+import styles from "./styles.module.css";
 
 const initialValue = {
   name: "",
@@ -31,9 +36,9 @@ export const NewReviewForm = () => {
   };
 
   return (
-    <div>
-      <div>
-        <label>Name</label>
+    <div className={styles.form}>
+      <div className={styles.formControl}>
+        <label className={styles.formControlLabel}>Name</label>
         <input
           value={formValue.name}
           onChange={({ target: { value } }) =>
@@ -41,8 +46,8 @@ export const NewReviewForm = () => {
           }
         />
       </div>
-      <div>
-        <label>Text</label>
+      <div className={styles.formControl}>
+        <label className={styles.formControlLabel}>Text</label>
         <input
           value={formValue.text}
           onChange={({ target: { value } }) =>
@@ -50,15 +55,22 @@ export const NewReviewForm = () => {
           }
         />
       </div>
-      <div>
-        <label>Rating</label>
-        <input
+      <div className={styles.formControl}>
+        <label className={styles.formControlLabel}>Rating</label>
+        <Rating
+          size={SIZE.l}
+          value={formValue.rating}
+          onChange={(rating) =>
+            dispatch({ type: "setRating", payload: rating })
+          }
+        />
+        {/* <input
           type="number"
           value={formValue.rating}
           onChange={({ target: { value } }) =>
             dispatch({ type: "setRating", payload: value })
           }
-        />
+        /> */}
       </div>
       <Button
         onClick={submit}

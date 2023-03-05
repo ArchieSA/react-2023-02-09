@@ -6,6 +6,7 @@
     background-color: white;
     border-radius: 4px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .s {
@@ -37,10 +38,22 @@
     border: none;
 }
 
+.icon {
+   border: none;
+}
+
 .primary.disabled {
     opacity: 0.8;
+    cursor: auto;
 }
+
 .secondary.disabled {
     background-color: rgb(92, 92, 92);
     opacity: 0.8;
+    cursor: auto;
+}
+
+.icon.disabled {
+  opacity: 0.8;
+  cursor: auto;
 }

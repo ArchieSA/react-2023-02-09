@@ -1,5 +1,8 @@
 import React from "react";
 
+import { Rating } from "../Rating/Rating";
+import { SIZE } from "../../constants/size";
+
 import styles from "./styles.module.css"
 
 export const Review = ({ review }) => {
@@ -12,7 +15,8 @@ export const Review = ({ review }) => {
     <div className={styles.root}>
       <div>{user}</div>
       <div>{text}</div>
-      <div>{rating}</div>
+      { !!rating && <Rating size={SIZE.s} value={rating} /> }
+      {/* <div>{rating}</div> */}
     </div>
   );
 };
