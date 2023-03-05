@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
+import { SIZE } from "../../constants/size";
 
 const initialValue = {
   name: "",
@@ -16,7 +18,12 @@ const reducer = (state, action) => {
       return { ...state, text: action.payload };
     }
     case "setRating": {
-      return { ...state, rating: action.payload };
+      //Не уверен, что именно тут это надо делать.
+      // Добавил условие для того,
+      // чтобы проверить, если клик по текущему рейтингу, то тогда понизить рейтинг.
+      const value =
+        action.payload === state.rating ? action.payload - 1 : action.payload;
+      return { ...state, rating: value };
     }
     default:
       return state;
@@ -52,12 +59,11 @@ export const NewReviewForm = () => {
       </div>
       <div>
         <label>Rating</label>
-        <input
-          type="number"
+        <Rating
           value={formValue.rating}
-          onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
-          }
+          active={true}
+          size={SIZE.l}
+          onChanged={(value) => dispatch({ type: "setRating", payload: value })}
         />
       </div>
       <Button
