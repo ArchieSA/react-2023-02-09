@@ -1,0 +1,23 @@
+.root {
+    display: flex;
+}
+.s {
+    min-width: 22px;
+    height: 22px;
+    padding: 2px;
+}
+
+.m {
+    min-width: 28px;
+    height: 28px;
+    padding: 4px;
+}
+
+.l {
+    min-width: 34px;
+    height: 34px;
+    padding: 6px;
+}
+.active{
+    cursor: pointer;
+}
