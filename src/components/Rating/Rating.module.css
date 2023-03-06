@@ -1,0 +1,37 @@
+.root {
+    display: flex;
+}
+
+.star {
+    background-color: transparent;
+    border: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./icons/star.svg");
+}
+.star:not(:last-child) {
+    margin-right: 4px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.star.gold {
+    background-image: url("./icons/star-gold.svg");
+}
+
+.s {
+    width: 25px;
+    height: 25px;
+}
+
+.m {
+    width: 35px;
+    height: 35px;
+}
+
+.l {
+    width: 45px;
+    height: 45px;
+}
