@@ -1,0 +1,44 @@
+.root {
+    display: flex;
+    margin: 10px 0;
+}
+
+.star {
+    margin-left: 5px;
+    transition: background-image 0.2s;
+    background-image: url(./img/star.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.star:first-child {
+    margin-left: 0;
+}
+
+.gold {
+    background-image: url(./img/star-gold.svg);
+    background-size: contain;
+}
+
+.root:hover > .write {
+    background-image: url(./img/star-gold.svg);
+}
+
+.root > .write:hover ~ .write {
+    background-image: url(./img/star.svg);
+}
+
+.s {
+    width: 24px;
+    height: 24px;
+}
+
+.m {
+    width: 28px;
+    height: 28px;
+}
+
+.l {
+    width: 32px;
+    height: 32px;
+}
