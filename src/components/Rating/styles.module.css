@@ -1,0 +1,26 @@
+.s {
+    width: 16px;
+    height: 16px;
+}
+
+.m {
+    width: 24px;
+    height: 24px;
+}
+
+.l {
+    width: 32px;
+    height: 32px;
+}
+
+.action:hover {
+    opacity: 0.8;
+}
+
+.flex {
+    display: flex;
+}
+
+.pointer {
+    cursor: pointer;
+}

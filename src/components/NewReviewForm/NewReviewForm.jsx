@@ -1,5 +1,9 @@
 import React, { useReducer } from "react";
+import { SIZE } from "../../constants/size";
 import { Button } from "../Button/Button";
+import { Rating } from "../Rating/Rating";
+
+const MAX_RATING = 5;
 
 const initialValue = {
   name: "",
@@ -56,8 +60,15 @@ export const NewReviewForm = () => {
           type="number"
           value={formValue.rating}
           onChange={({ target: { value } }) =>
-            dispatch({ type: "setRating", payload: value })
+            dispatch({ type: "setRating", payload: value > 5 ? MAX_RATING : value })
           }
+        />
+        <Rating 
+          size={SIZE.l}
+          value={formValue.rating}
+          onChange={(rating) => {
+            dispatch({ type: "setRating", payload: rating })
+          }}
         />
       </div>
       <Button
