@@ -7,8 +7,7 @@ export const Menu = ({ restaurantId }) => {
   const menu = useSelector((state) =>
     selectRestaurantMenuById(state, { restaurantId })
   );
-
-  return (
+   return (
     <div>
       <h3>Menu</h3>
       <ul>
