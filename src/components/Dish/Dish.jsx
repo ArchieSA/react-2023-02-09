@@ -7,12 +7,14 @@ import { Ingredient } from "../Ingredient/Ingredient";
 
 import styles from "./styles.module.css";
 import { selectDishCount } from "../../store/cart/selectors";
+import { selectDishById } from "../../store/entities/dish/selector";
 
 export const Dish = ({ dishId }) => {
   const dish = useSelector((state) => selectDishById(state, { dishId }));
   const count = useSelector((state) =>
     selectDishCount(state, { dishName: dish.name })
   );
+
   const dispatch = useDispatch();
   const increment = () =>
     dispatch({ type: "incrementDish", payload: dish.name });
