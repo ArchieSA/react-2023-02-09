@@ -1,14 +1,16 @@
 import React from "react";
 import { Tab } from "../Tab/Tab";
 
-export const Tabs = ({ tabs, onTabClick, activeIndex }) => {
+import styles from "./styles.module.css";
+
+export const Tabs = ({ tabs, onTabClick, activeId }) => {
   return (
-    <div>
-      {tabs.map(({ title }, index) => (
+    <div className={styles.root}>
+      {tabs.map(({ title, id }) => (
         <Tab
           title={title}
-          onClick={() => onTabClick(index)}
-          isActive={activeIndex === index}
+          onClick={() => onTabClick(id)}
+          isActive={activeId === id}
         />
       ))}
     </div>

@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --red-color: red;
+  --black-color: black;
+  --default-padding: 24px;
+}
