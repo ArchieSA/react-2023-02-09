@@ -1,14 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectRestaurantReviewsById } from "../../store/entities/restaurant/selectors";
 import { NewReviewForm } from "../NewReviewForm/NewReviewForm";
 import { Review } from "../Review/Review";
 
-<<<<<<< HEAD
-export const Reviews = ({reviews}) => {
-  const restaurantReviews = reviews.map(({ text }) => text).join(" ,");
-  //return <div>{restaurantReviews}</div>
-  return React.createElement('div', {}, restaurantReviews);
-=======
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ restaurantId }) => {
+  
+  
+  const reviews = useSelector((state) =>
+  selectRestaurantReviewsById(state, { restaurantId })
+);
+
   return (
     <div>
       <h3>Reviews</h3>
@@ -17,7 +19,7 @@ export const Reviews = ({ reviews }) => {
           (review) =>
             !!review && (
               <li>
-                <Review review={review} />
+                <Review reviewId={review} />
               </li>
             )
         )}
@@ -25,5 +27,4 @@ export const Reviews = ({ reviews }) => {
       <NewReviewForm />
     </div>
   );
->>>>>>> fd4cf4975a9c3ae426087720930fbe5c1454130a
 };
