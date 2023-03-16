@@ -1,14 +1,18 @@
 import React from "react";
 import { SIZE } from "../../constants/size";
-import { useDispatch, useSelector } from "../../CustomRedux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../Button/Button";
 import { BUTTON_VIEW_VARIANT } from "../Button/constants";
 import { Ingredient } from "../Ingredient/Ingredient";
 
 import styles from "./styles.module.css";
+import { selectDishCount } from "../../store/cart/selectors";
 
-export const Dish = ({ dish }) => {
-  const count = useSelector((state) => state[dish.name] || 0);
+export const Dish = ({ dishId }) => {
+  const dish = useSelector((state) => selectDishById(state, { dishId }));
+  const count = useSelector((state) =>
+    selectDishCount(state, { dishName: dish.name })
+  );
   const dispatch = useDispatch();
   const increment = () =>
     dispatch({ type: "incrementDish", payload: dish.name });

@@ -1,25 +1,23 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Cart } from "../../components/Cart/Cart";
 import { Restaurant } from "../../components/Restaurant/Restaurant";
-import { Tabs } from "../../components/Tabs/Tabs";
-import { transformRestaurantsToTabs } from "../../utils/transformRestaurantsToTabs";
+import { RestaurantTabs } from "../../containers/RestaurantTabs/RestaurantTabs";
+import { selectRestaurantIds } from "../../store/entities/restaurant/selectors";
 
-export const RestaurantPage = ({ restaurants }) => {
-  const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0);
-  const activeRestaurant = restaurants[activeRestaurantIndex];
-
-  if (!activeRestaurant) {
-    return null;
-  }
+export const RestaurantPage = () => {
+  const restaurantIds = useSelector(selectRestaurantIds);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantIds[0]
+  );
 
   return (
     <div>
-      <Tabs
-        tabs={transformRestaurantsToTabs(restaurants)}
-        activeIndex={activeRestaurantIndex}
-        onTabClick={setActiveRestaurantIndex}
+      <RestaurantTabs
+        activeId={activeRestaurantId}
+        onTabClick={setActiveRestaurantId}
       />
-      <Restaurant restaurant={activeRestaurant} />
+      {activeRestaurantId && <Restaurant restaurantId={activeRestaurantId} />}
       <Cart />
     </div>
   );

@@ -1,15 +1,15 @@
 import React from "react";
-import { restaurants } from "./constants/fixtures";
-import { StoreProvider } from "./CustomRedux";
+import { Provider } from "react-redux";
+
 import { RestaurantPage } from "./pages/RestaurantPage/RestaurantPage";
 import { store } from "./store";
 
 export const App = () => {
   return (
-    <StoreProvider store={store}>
+    <Provider store={store}>
       <div>
-        <RestaurantPage restaurants={restaurants} />
+        <RestaurantPage />
       </div>
-    </StoreProvider>
+    </Provider>
   );
 };
