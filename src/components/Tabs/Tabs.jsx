@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab } from "../Tab/Tab";
 
-import styles from "./styles.module.css";
+import styles from "./Tabs.module.css";
 
 export const Tabs = ({ tabs, onTabClick, activeId }) => {
   return (
