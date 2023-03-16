@@ -2,7 +2,7 @@ import { MAX_RATING } from "./constants";
 import Star from "./img/star.svg";
 import GoldStar from "./img/star-gold.svg";
 
-import styles from "./styles.module.css";
+import styles from "./Rating.module.css";
 import classnames from "classnames";
 import { SIZE } from "../../constants/size";
 
