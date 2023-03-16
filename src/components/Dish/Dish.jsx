@@ -6,6 +6,7 @@ import { BUTTON_VIEW_VARIANT } from "../Button/constants";
 import { Ingredient } from "../Ingredient/Ingredient";
 
 import styles from "./styles.module.css";
+import { selectDishById } from "../../store/entities/dish/selectors";
 import { selectDishCount } from "../../store/cart/selectors";
 
 export const Dish = ({ dishId }) => {

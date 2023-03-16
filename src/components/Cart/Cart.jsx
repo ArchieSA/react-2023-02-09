@@ -4,6 +4,7 @@ import { selectCartEntries } from "../../store/cart/selectors";
 
 export const Cart = () => {
   const cart = useSelector(selectCartEntries);
+  console.log('cart: ', cart)
   return (
     <ul>
       {cart.map(([name, count]) => (
