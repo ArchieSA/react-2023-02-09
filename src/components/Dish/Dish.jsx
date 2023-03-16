@@ -6,18 +6,15 @@ import { BUTTON_VIEW_VARIANT } from "../Button/constants";
 import { Ingredient } from "../Ingredient/Ingredient";
 
 import styles from "./styles.module.css";
-import { selectDishCount } from "../../store/cart/selectors";
+import { selectDishById } from '../../store/entities/dish/selectors'
+import { selectCartDishById } from '../../store/cart/selectors'
 
 export const Dish = ({ dishId }) => {
   const dish = useSelector((state) => selectDishById(state, { dishId }));
-  const count = useSelector((state) =>
-    selectDishCount(state, { dishName: dish.name })
-  );
+  const count = useSelector((state) => selectCartDishById(state, { dishId }))
   const dispatch = useDispatch();
-  const increment = () =>
-    dispatch({ type: "incrementDish", payload: dish.name });
-  const decrement = () =>
-    dispatch({ type: "decrementDish", payload: dish.name });
+  const increment = () => dispatch({ type: 'incrementDish', payload: dish.id })
+  const decrement = () => dispatch({ type: 'decrementDish', payload: dish.id })
 
   if (!dish) {
     return null;
