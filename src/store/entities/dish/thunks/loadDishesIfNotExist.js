@@ -11,8 +11,6 @@ export const loadDishesIfNotExist = (restaurantId) => (dispatch, getState) => {
 
   const restaurantDishIds = selectRestaurantMenuById(state, { restaurantId });
   const dishIds = selectDishIds(state);
-  console.log("restaurantDishIds", restaurantDishIds);
-  console.log("dishIds", dishIds);
 
   if (restaurantDishIds.every((id) => dishIds.includes(id))) {
     return;

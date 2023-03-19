@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 import { selectDishCount } from "../../store/cart/selectors";
 import { selectDishById } from "../../store/entities/dish/selectors";
 import classNames from "classnames";
+import { cartActions } from "../../store/cart/actions";
 
 export const Dish = ({ dishId, className }) => {
   const dish = useSelector((state) => selectDishById(state, { dishId }));
@@ -16,9 +17,9 @@ export const Dish = ({ dishId, className }) => {
   );
   const dispatch = useDispatch();
   const increment = () =>
-    dispatch({ type: "incrementDish", payload: dish.name });
+    dispatch(cartActions.incrementDish(dish.name));
   const decrement = () =>
-    dispatch({ type: "decrementDish", payload: dish.name });
+   dispatch(cartActions.decrementDish(dish.name));
 
   if (!dish) {
     return null;
