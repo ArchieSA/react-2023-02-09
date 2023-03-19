@@ -1,5 +1,6 @@
-import { createAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
+import { loadRestaurantIfNotExist } from "./thunks/loadRestaurantIfNotExist";
 
 const initialState = {
   entities: {},
@@ -31,5 +32,5 @@ export const restaurantSlice = createSlice({
 
 export const restaurantActions = {
   ...restaurantSlice.actions,
-  loadRestaurantsAction: createAction("restaurant/Load"),
+  loadRestaurantIfNotExist,
 };
