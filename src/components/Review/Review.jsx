@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { SIZE } from "../../constants/size";
 import { selectReviewById } from "../../store/entities/review/selectors";
 import { Rating } from "../Rating/Rating";

@@ -19,7 +19,12 @@ export const Menu = ({ restaurantId }) => {
   }, [restaurantId]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <div>
+        <h3>Menu</h3>
+        <span>Loading...</span>
+      </div>
+    );
   }
 
   return (
