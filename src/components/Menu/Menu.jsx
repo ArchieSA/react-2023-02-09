@@ -16,10 +16,10 @@ export const Menu = ({ restaurantId }) => {
 
   useEffect(() => {
     dispatch(loadDishesIfNotExist(restaurantId));
-  }, [restaurantId]);
+  }, [restaurantId, dispatch]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <span>Menu loading...</span>;
   }
 
   return (
