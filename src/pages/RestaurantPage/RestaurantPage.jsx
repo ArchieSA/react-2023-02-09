@@ -9,6 +9,7 @@ import {
   selectIsRestaurantLoading,
   selectRestaurantIds,
 } from "../../store/entities/restaurant/selectors";
+import { loadRestaurantsIfNotExist } from "../../store/entities/restaurant/thunks/loadRestarauntIfNotExist";
 
 import styles from "./styles.module.css";
 
@@ -22,7 +23,7 @@ export const RestaurantPage = () => {
   const isLoaded = useSelector(selectIsRestaurantLoaded);
 
   useEffect(() => {
-    dispatch(restaurantActions.loadRestaurantsAction());
+    dispatch(loadRestaurantsIfNotExist());
   }, []);
 
   useEffect(() => {
