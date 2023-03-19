@@ -1,7 +1,6 @@
 .root {
     display: flex;
     flex-direction: column;
-    color: var(--red-color);
 }
 
 .dish {
@@ -43,4 +42,8 @@
 
 .title {
     font-weight: 600;
+}
+
+.icon {
+    font-weight: 700;
 }

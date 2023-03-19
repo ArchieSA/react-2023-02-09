@@ -1,17 +1,20 @@
+import { REQUEST_STATUSES } from "../../../constants/statuses";
+
 export const selectDishModule = (state) => state.dish;
 
-// export const selectRestaurantById = (state, { restaurantId }) =>
-//   selectRestaurantModule(state).entities[restaurantId];
+export const selectDishById = (state, { dishId }) =>
+  selectDishModule(state).entities[dishId];
 
-// export const selectRestaurantIds = (state) => selectRestaurantModule(state).ids;
+export const selectDishIds = (state) => selectDishModule(state).ids;
 
-// export const selectRestaurants = (state) =>
-//   Object.values(selectRestaurantModule(state).entities);
+export const selectDishes = (state) =>
+  Object.values(selectDishModule(state).entities);
 
-// export const selectRestaurantMenuById = (state, { restaurantId }) =>
-//   selectRestaurantById(state, { restaurantId })?.menu;
+export const selectDishLoadingStatus = (state) =>
+  selectDishModule(state).status;
 
-export const selectDishById = (state, { dishId }) => {
-  return selectDishModule(state).entities[dishId]; 
-}
+export const selectIsDishLoading = (state) =>
+  selectDishLoadingStatus(state) === REQUEST_STATUSES.pending;
 
+export const selectIsDishLoaded = (state) =>
+  selectDishLoadingStatus(state) === REQUEST_STATUSES.success;

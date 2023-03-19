@@ -1,3 +1,5 @@
+import { REQUEST_STATUSES } from "../../../constants/statuses";
+
 export const selectRestaurantModule = (state) => state.restaurant;
 
 export const selectRestaurantById = (state, { restaurantId }) =>
@@ -13,3 +15,12 @@ export const selectRestaurantMenuById = (state, { restaurantId }) =>
 
 export const selectRestaurantReviewsById = (state, { restaurantId }) =>
   selectRestaurantById(state, { restaurantId })?.reviews;
+
+export const selectRestaurantLoadingStatus = (state) =>
+  selectRestaurantModule(state).status;
+
+export const selectIsRestaurantLoading = (state) =>
+  selectRestaurantLoadingStatus(state) === REQUEST_STATUSES.pending;
+
+export const selectIsRestaurantLoaded = (state) =>
+  selectRestaurantLoadingStatus(state) === REQUEST_STATUSES.success;

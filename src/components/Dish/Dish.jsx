@@ -3,17 +3,16 @@ import { SIZE } from "../../constants/size";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../Button/Button";
 import { BUTTON_VIEW_VARIANT } from "../Button/constants";
-import { Ingredient } from "../Ingredient/Ingredient";
 
 import styles from "./styles.module.css";
 import { selectDishCount } from "../../store/cart/selectors";
 import { selectDishById } from "../../store/entities/dish/selectors";
+import classNames from "classnames";
 
-export const Dish = ({ dishId }) => {
-  
+export const Dish = ({ dishId, className }) => {
   const dish = useSelector((state) => selectDishById(state, { dishId }));
   const count = useSelector((state) =>
-    selectDishCount(state, { dishName: dish.name })
+    selectDishCount(state, { dishName: dish?.name })
   );
   const dispatch = useDispatch();
   const increment = () =>
@@ -25,10 +24,10 @@ export const Dish = ({ dishId }) => {
     return null;
   }
 
-  const { name, price, ingredients } = dish;
+  const { name, price } = dish;
 
   return (
-    <div className={styles.root}>
+    <div className={classNames(styles.root, className)}>
       <div className={styles.dish}>
         <div className={styles.title}>
           <span>{name}</span>-<span>{price}</span>
@@ -41,7 +40,7 @@ export const Dish = ({ dishId }) => {
             viewVariant={BUTTON_VIEW_VARIANT.secondary}
             disabled={count === 0}
           >
-            -
+            <span className={styles.icon}>-</span>
           </Button>
           {count}
           <Button
@@ -51,17 +50,10 @@ export const Dish = ({ dishId }) => {
             viewVariant={BUTTON_VIEW_VARIANT.secondary}
             disabled={count === 6}
           >
-            +
+            <span className={styles.icon}>+</span>
           </Button>
         </div>
       </div>
-      {count > 0 && !!ingredients.length && (
-        <div>
-          {ingredients.map((ingredient) => (
-            <Ingredient name={ingredient} />
-          ))}
-        </div>
-      )}
     </div>
   );
 };

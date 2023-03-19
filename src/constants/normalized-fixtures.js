@@ -49,7 +49,7 @@ export const normalizedRestaurants = [
   },
 ];
 
-export const normalizedProducts = [
+export const normalizedDishes = [
   {
     id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
     name: "Chicken tikka masala",

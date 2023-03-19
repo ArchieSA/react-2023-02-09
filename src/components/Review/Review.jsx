@@ -1,26 +1,28 @@
+import classNames from "classnames";
 import React from "react";
+import { useSelector } from "react-redux";
 import { SIZE } from "../../constants/size";
 import { selectReviewById } from "../../store/entities/review/selectors";
 import { Rating } from "../Rating/Rating";
-import { useSelector } from "react-redux";
-
-import styles from "./styles.module.css";
 import { User } from "../User/User";
 
-export const Review = ({ reviewId }) => {
+import styles from "./styles.module.css";
+
+export const Review = ({ reviewId, className }) => {
   const review = useSelector((state) => selectReviewById(state, { reviewId }));
-  // console.log(review)
+
   if (!review) {
     return null;
   }
 
-  const { userId, text, rating } = review;
-
+  const { text, rating, userId } = review;
   return (
-    <div className={styles.root}>
-      <User userId={userId} />
+    <div className={classNames(styles.root, className)}>
+      <div className={styles.header}>
+        <User userId={userId} />
+        <Rating value={rating} size={SIZE.s} />
+      </div>
       <div>{text}</div>
-      <Rating value={rating} size={SIZE.s} />
     </div>
   );
 };
