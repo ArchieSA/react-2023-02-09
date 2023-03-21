@@ -6,6 +6,7 @@ import { selectRestaurantMenuById } from "../../store/entities/restaurant/select
 import { Dish } from "../Dish/Dish";
 
 import styles from "./styles.module.css";
+import { Loader } from "../Loader/Loader";
 
 export const Menu = ({ restaurantId }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const Menu = ({ restaurantId }) => {
   }, [restaurantId]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <Loader />;
   }
 
   return (
