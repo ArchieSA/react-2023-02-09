@@ -1,9 +1,9 @@
-import { createAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
 import { initialEntitiesState } from "../index";
 
-export const restaurantSlice = createSlice({
-  name: "restaurant",
+export const userSlice = createSlice({
+  name: "user",
   initialState: initialEntitiesState,
   reducers: {
     startLoading: (state) => {
@@ -13,8 +13,8 @@ export const restaurantSlice = createSlice({
       state.status = REQUEST_STATUSES.failed;
     },
     finishLoading: (state, { payload }) => {
-      state.entities = payload.reduce((acc, restaurant) => {
-        acc[restaurant.id] = restaurant;
+      state.entities = payload.reduce((acc, user) => {
+        acc[user.id] = user;
 
         return acc;
       }, {});
@@ -23,8 +23,3 @@ export const restaurantSlice = createSlice({
     },
   },
 });
-
-export const restaurantActions = {
-  ...restaurantSlice.actions,
-  loadRestaurantsAction: createAction("restaurant/Load"),
-};
