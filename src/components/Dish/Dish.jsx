@@ -10,7 +10,9 @@ import { selectDishById } from "../../store/entities/dish/selectors";
 import classNames from "classnames";
 
 export const Dish = ({ dishId, className }) => {
+  
   const dish = useSelector((state) => selectDishById(state, { dishId }));
+  
   const count = useSelector((state) =>
     selectDishCount(state, { dishName: dish?.name })
   );
@@ -20,6 +22,7 @@ export const Dish = ({ dishId, className }) => {
   const decrement = () =>
     dispatch({ type: "decrementDish", payload: dish.name });
 
+    
   if (!dish) {
     return null;
   }

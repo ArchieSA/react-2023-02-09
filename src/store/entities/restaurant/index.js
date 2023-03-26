@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
 import { loadRestaurantIfNotExist } from "./thunks/loadRestaurantsIfNotExist";
 
-const restaurantEntityAdapter = createEntityAdapter();
+export const restaurantEntityAdapter = createEntityAdapter();
 
 export const restaurantSlice = createSlice({
   name: "restaurant",
