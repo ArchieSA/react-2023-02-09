@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { selectIsDishLoading } from "../../store/entities/dish/selectors";
 import { loadDishesIfNotExist } from "../../store/entities/dish/thunks/loadDishesIfNotExist";
 import { selectRestaurantMenuById } from "../../store/entities/restaurant/selectors";
@@ -9,7 +9,10 @@ import { Dish } from "../Dish/Dish";
 
 import styles from "./styles.module.css";
 
-export const Menu = ({ restaurantId }) => {
+export const Menu = () => {
+  
+  const { restaurantId } = useParams();
+
   const dispatch = useDispatch();
   const menu = useSelector((state) =>
     selectRestaurantMenuById(state, { restaurantId })

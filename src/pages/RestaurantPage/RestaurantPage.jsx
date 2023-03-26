@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RestaurantTabs } from "../../containers/RestaurantTabs/RestaurantTabs";
 import { loadRestaurantIfNotExist } from "../../store/entities/restaurant/thunks/loadRestaurantsIfNotExist";
 import {
-  selectIsRestaurantLoaded,
   selectIsRestaurantLoading,
-  selectRestaurantIds,
 } from "../../store/entities/restaurant/selectors";
 
 import styles from "./styles.module.css";

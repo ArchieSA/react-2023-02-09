@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectRestaurantById } from "../../store/entities/restaurant/selectors";
-import { Menu } from "../Menu/Menu";
-import { Reviews } from "../Reviews/Reviews";
+import { Tabs } from "../Tabs/Tabs";
+import { Outlet } from "react-router-dom";
 
 export const Restaurant = () => {
   const { restaurantId } = useParams();
@@ -15,13 +15,15 @@ export const Restaurant = () => {
     return null;
   }
 
+  const restaurantTabs = [{title: 'Menu', id:'menu'}, {title: 'Reviews', id:'reviews'}];
+
   const { name } = restaurant;
 
   return (
     <div>
       <h2>{name}</h2>
-      <Menu restaurantId={restaurantId} />
-      {<Reviews restaurantId={restaurantId} />}
+      <Tabs tabs={restaurantTabs} />
+      <Outlet />
     </div>
   );
 };
