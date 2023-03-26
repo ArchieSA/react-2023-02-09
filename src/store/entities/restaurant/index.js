@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
 import { loadRestaurantIfNotExist } from "./thunks/loadRestaurantsIfNotExist";
 
-const restaurantEntityAdapter = createEntityAdapter();
+export const restaurantEntityAdapter = createEntityAdapter();
 
 export const restaurantSlice = createSlice({
   name: "restaurant",
@@ -14,14 +14,8 @@ export const restaurantSlice = createSlice({
       .addCase(loadRestaurantIfNotExist.pending, (state) => {
         state.status = REQUEST_STATUSES.pending;
       })
-      .addCase(loadRestaurantIfNotExist.rejected, (state, { payload }) => {
-        state.status =
-          payload === REQUEST_STATUSES.earlyLoaded
-            ? REQUEST_STATUSES.success
-            : REQUEST_STATUSES.failed;
-      })
       .addCase(loadRestaurantIfNotExist.fulfilled, (state, { payload }) => {
-        restaurantEntityAdapter.setAll(state, payload);
+        restaurantEntityAdapter.setMany(state, payload);
         state.status = REQUEST_STATUSES.success;
       }),
 });

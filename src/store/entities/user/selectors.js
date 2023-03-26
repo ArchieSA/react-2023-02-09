@@ -1,9 +1,11 @@
+import { userEntityAdapter } from "./index";
+
 export const selectUserModule = (state) => state.user;
-
+const userSelectors = userEntityAdapter.getSelectors(selectUserModule);
 export const selectUserById = (state, { userId }) =>
-  selectUserModule(state).entities[userId];
+  userSelectors.selectById(state, userId);
 
-export const selectUserIds = (state) => selectUserModule(state).ids;
+export const selectUserIds = userSelectors.selectIds;
+export const selectUserTotal = userSelectors.selectTotal;
 
-export const selectUsers = (state) =>
-  Object.values(selectUserModule(state).entities);
+export const selectUsers = (state) => userSelectors.selectEntities;

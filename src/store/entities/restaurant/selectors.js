@@ -1,20 +1,27 @@
 import { REQUEST_STATUSES } from "../../../constants/statuses";
+import { restaurantEntityAdapter } from "./index";
 
 export const selectRestaurantModule = (state) => state.restaurant;
+const restaurantSelects = restaurantEntityAdapter.getSelectors(
+  selectRestaurantModule
+);
 
 export const selectRestaurantById = (state, { restaurantId }) =>
-  selectRestaurantModule(state).entities[restaurantId];
+  restaurantSelects.selectById(state, restaurantId);
 
-export const selectRestaurantIds = (state) => selectRestaurantModule(state).ids;
+export const selectRestaurantIds = restaurantSelects.selectIds;
+export const selectRestaurantTotal = restaurantSelects.selectTotal;
 
-export const selectRestaurants = (state) =>
-  Object.values(selectRestaurantModule(state).entities);
+export const selectRestaurantsEntities = restaurantSelects.selectEntities;
+export const selectRestaurantsAll = restaurantSelects.selectAll;
 
 export const selectRestaurantsFilteredByName = (state, { searchValue }) =>
   Object.values(selectRestaurantModule(state).entities).filter(
     ({ name }) => name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
   );
 
+export const selectRestaurantByDishId = (state, { dishId }) =>
+  selectRestaurantsAll(state).find(({ menu }) => menu.includes(dishId));
 export const selectRestaurantMenuById = (state, { restaurantId }) =>
   selectRestaurantById(state, { restaurantId })?.menu;
 
@@ -29,3 +36,10 @@ export const selectIsRestaurantLoading = (state) =>
 
 export const selectIsRestaurantLoaded = (state) =>
   selectRestaurantLoadingStatus(state) === REQUEST_STATUSES.success;
+
+export const selectCountDishesByRestaurants = (state) => {
+  return selectRestaurantsAll(state).reduce((acc, rest) => {
+    acc += rest?.menu.length;
+    return acc;
+  }, 0);
+};

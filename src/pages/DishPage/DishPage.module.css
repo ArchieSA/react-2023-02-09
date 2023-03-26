@@ -1,0 +1,12 @@
+.root {
+    padding: 20px 30px;
+    display: grid;
+
+    grid-template-columns: 1fr;
+}
+.ingredients{
+    margin-top: .8em;
+}
+.ingredients > span {
+    color: gray;
+}

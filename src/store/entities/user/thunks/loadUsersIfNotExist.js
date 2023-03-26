@@ -1,18 +1,15 @@
 import { userSlice } from "..";
-import { selectUserIds } from "../selectors";
+import { selectUserIds, selectUserTotal } from "../selectors";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { selectRestaurantIds } from "../../restaurant/selectors";
 
-export const loadUserIfNotExist = () => (dispatch, getState) => {
-  const userIds = selectUserIds(getState());
-
-  if (userIds.length) {
-    return;
+export const loadUserIfNotExist = createAsyncThunk(
+  "user",
+  async () => {
+    const response = await fetch(`http://localhost:3001/api/users/`);
+    return await response.json();
+  },
+  {
+    condition: (_, { getState }) => !selectUserTotal(getState()),
   }
-
-  dispatch(userSlice.actions.startLoading());
-  fetch("http://localhost:3001/api/users/")
-    .then((response) => response.json())
-    .then((users) =>
-      dispatch(userSlice.actions.finishLoading(users))
-    )
-    .catch(() => dispatch(userSlice.actions.failLoading()));
-};
+);

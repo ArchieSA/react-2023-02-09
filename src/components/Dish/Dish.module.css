@@ -1,0 +1,10 @@
+.root {
+    display: inline-flex;
+
+}
+
+.dish {
+    display: inline-flex;
+    justify-content: start;
+}
+

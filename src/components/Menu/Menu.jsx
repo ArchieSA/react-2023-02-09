@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { selectIsDishLoading } from "../../store/entities/dish/selectors";
-import { loadDishesIfNotExist } from "../../store/entities/dish/thunks/loadDishesIfNotExist";
+import { loadRestaurantDishesIfNotExist } from "../../store/entities/dish/thunks/loadRestaurantDishesIfNotExist";
 import { selectRestaurantMenuById } from "../../store/entities/restaurant/selectors";
 import { Button } from "../Button/Button";
-import { Dish } from "../Dish/Dish";
 
 import styles from "./styles.module.css";
+import { DishCount } from "../DishCount/DishCount";
 
-export const Menu = ({ restaurantId }) => {
+export const Menu = () => {
   const dispatch = useDispatch();
+  const { restaurantId } = useParams();
   const menu = useSelector((state) =>
     selectRestaurantMenuById(state, { restaurantId })
   );
@@ -19,7 +20,7 @@ export const Menu = ({ restaurantId }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(loadDishesIfNotExist(restaurantId));
+    dispatch(loadRestaurantDishesIfNotExist(restaurantId));
   }, [restaurantId]);
 
   if (isLoading) {
@@ -31,7 +32,7 @@ export const Menu = ({ restaurantId }) => {
       <h3>Menu</h3>
       <div className={styles.dishes}>
         {menu.map((dishId) => (
-          <Dish dishId={dishId} className={styles.dish} />
+          <DishCount dishId={dishId} className={styles.dish} />
         ))}
       </div>
       <Button onClick={() => navigate("/cart")}>Перейти к заказу</Button>

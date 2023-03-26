@@ -6,9 +6,11 @@ import { loadReviewsIfNotExist } from "../../store/entities/review/thunks/loadRe
 import { loadUserIfNotExist } from "../../store/entities/user/thunks/loadUsersIfNotExist";
 import { Review } from "../Review/Review";
 import styles from "./styles.module.css";
+import { useParams } from "react-router-dom";
 
-export const Reviews = ({ restaurantId }) => {
+export const Reviews = () => {
   const dispatch = useDispatch();
+  const { restaurantId } = useParams();
   const reviews = useSelector((state) =>
     selectRestaurantReviewsById(state, { restaurantId })
   );
@@ -17,10 +19,6 @@ export const Reviews = ({ restaurantId }) => {
   useEffect(() => {
     dispatch(loadReviewsIfNotExist(restaurantId));
   }, [restaurantId]);
-
-  useEffect(() => {
-    dispatch(loadUserIfNotExist());
-  }, []);
 
   useEffect(() => {
     dispatch(loadUserIfNotExist());

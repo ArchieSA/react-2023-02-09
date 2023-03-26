@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { cartReducer } from "./cart/reducer";
+import { cartReducer, cartSlice } from "./cart";
 import { dishSlice } from "./entities/dish";
 import { restaurantSlice } from "./entities/restaurant";
 import { reviewSlice } from "./entities/review";
@@ -15,7 +15,7 @@ import { logger } from "./middleware/logger";
 // };
 
 const rootReducer = combineReducers({
-  cart: cartReducer,
+  cart: cartSlice.reducer,
   restaurant: restaurantSlice.reducer,
   dish: dishSlice.reducer,
   review: reviewSlice.reducer,
@@ -29,8 +29,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([logger]),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger]),
 });
 
 console.log("state", store.getState());

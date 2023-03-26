@@ -1,5 +1,8 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
+import { loadRestaurantDishesIfNotExist } from "./thunks/loadRestaurantDishesIfNotExist";
+import { loadAllDishesIfNotExist } from "./thunks/loadAllDishesIfNotExist";
+import { loadDishIfNotExist } from "./thunks/loadDishIfNotExist";
 
 export const dishEntityAdapter = createEntityAdapter();
 
@@ -8,18 +11,31 @@ export const dishSlice = createSlice({
   initialState: dishEntityAdapter.getInitialState({
     status: REQUEST_STATUSES.idle,
   }),
-  reducers: {
-    startLoading: (state) => {
-      state.status = REQUEST_STATUSES.pending;
-    },
-    failLoading: (state) => {
-      state.status = REQUEST_STATUSES.failed;
-    },
-    finishLoading: (state, { payload }) => {
-      dishEntityAdapter.setMany(state, payload);
-      state.status = REQUEST_STATUSES.success;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadRestaurantDishesIfNotExist.pending, (state) => {
+        state.status = REQUEST_STATUSES.pending;
+      })
+      .addCase(
+        loadRestaurantDishesIfNotExist.fulfilled,
+        (state, { payload }) => {
+          state.status = REQUEST_STATUSES.success;
+          dishEntityAdapter.setMany(state, payload);
+        }
+      )
+      .addCase(loadAllDishesIfNotExist.pending, (state) => {
+        state.status = REQUEST_STATUSES.pending;
+      })
+      .addCase(loadAllDishesIfNotExist.fulfilled, (state, { payload }) => {
+        state.status = REQUEST_STATUSES.success;
+        dishEntityAdapter.setMany(state, payload);
+      })
+      .addCase(loadDishIfNotExist.pending, (state) => {
+        state.status = REQUEST_STATUSES.pending;
+      })
+      .addCase(loadDishIfNotExist.fulfilled, (state, { payload }) => {
+        state.status = REQUEST_STATUSES.success;
+        dishEntityAdapter.setOne(state, payload);
+      });
   },
 });
-
-export const dishActions = dishSlice.actions;

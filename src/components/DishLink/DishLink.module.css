@@ -1,0 +1,17 @@
+.root{
+
+}
+
+.root a{
+    text-decoration: none;
+}
+
+.restaurant{
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 16px;
+    color: gray;
+}
+.restaurant a{
+    color: gray;
+}
