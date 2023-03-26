@@ -1,14 +1,13 @@
+import { dishEntityAdapter } from ".";
 import { REQUEST_STATUSES } from "../../../constants/statuses";
 
 export const selectDishModule = (state) => state.dish;
+const dishSelectors = dishEntityAdapter.getSelectors(selectDishModule);
 
 export const selectDishById = (state, { dishId }) =>
-  selectDishModule(state).entities[dishId];
-
-export const selectDishIds = (state) => selectDishModule(state).ids;
-
-export const selectDishes = (state) =>
-  Object.values(selectDishModule(state).entities);
+  dishSelectors.selectById(state, dishId);
+export const selectDishIds = dishSelectors.selectIds;
+export const selectDishes = dishSelectors.selectAll;
 
 export const selectDishLoadingStatus = (state) =>
   selectDishModule(state).status;

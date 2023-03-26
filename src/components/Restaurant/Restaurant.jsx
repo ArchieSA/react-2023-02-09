@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { selectRestaurantById } from "../../store/entities/restaurant/selectors";
 import { Menu } from "../Menu/Menu";
 import { Reviews } from "../Reviews/Reviews";
 
-export const Restaurant = ({ restaurantId }) => {
+export const Restaurant = () => {
+  const { restaurantId } = useParams();
   const restaurant = useSelector((state) =>
     selectRestaurantById(state, { restaurantId })
   );

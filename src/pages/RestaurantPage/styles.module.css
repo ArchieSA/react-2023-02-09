@@ -2,6 +2,5 @@
     padding: 20px 30px;
     display: grid;
 
-    grid-template-columns: 1fr 300px;
-    column-gap: 35px;
+    grid-template-columns: 1fr;
 }

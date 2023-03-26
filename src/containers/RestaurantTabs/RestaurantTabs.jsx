@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { Tabs } from "../../components/Tabs/Tabs";
-import { selectRestaurants } from "../../store/entities/restaurant/selectors";
+import { selectRestaurantsFilteredByName } from "../../store/entities/restaurant/selectors";
 
-export const RestaurantTabs = ({ onTabClick, activeId }) => {
-  const restaurants = useSelector(selectRestaurants);
+export const RestaurantTabs = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // const selectRestaurantsFilteredByName = useCallback(
+  //   createSelectRestaurantsFilteredByName(),
+  //   []
+  // );
+
+  const restaurants = useSelector((state) =>
+    selectRestaurantsFilteredByName(state, {
+      searchValue: searchParams.get("search") || "",
+    })
+  );
 
   const restaurantTabs = restaurants.map(({ id, name }) => ({
     id,
     title: name,
   }));
   return (
-    <Tabs tabs={restaurantTabs} onTabClick={onTabClick} activeId={activeId} />
+    <div>
+      <input
+        value={searchParams.get("search") || ""}
+        onChange={(event) => setSearchParams({ search: event.target.value })}
+      />
+      <Tabs tabs={restaurantTabs} />
+    </div>
   );
 };

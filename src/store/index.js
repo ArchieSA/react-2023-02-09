@@ -1,13 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { combineReducers } from "redux";
 import { cartReducer } from "./cart/reducer";
-import { dishReducer } from "./entities/dish/reducer";
+import { dishSlice } from "./entities/dish";
 import { restaurantSlice } from "./entities/restaurant";
-import { loadRestaurantIfNotExist } from "./entities/restaurant/middleware/loadRestaurantsIfNotExist";
-import { restaurantReducer } from "./entities/restaurant/reducer";
-import { reviewReducer } from "./entities/review/reducer";
-import { userReducer } from "./entities/user/reducer";
-import { customThunk } from "./middleware/customThunk";
+import { reviewSlice } from "./entities/review";
+import { userSlice } from "./entities/user";
 import { logger } from "./middleware/logger";
 
 // const rootReducer = (state = {}, action = {}) => {
@@ -20,9 +17,9 @@ import { logger } from "./middleware/logger";
 const rootReducer = combineReducers({
   cart: cartReducer,
   restaurant: restaurantSlice.reducer,
-  dish: dishReducer,
-  review: reviewReducer,
-  user: userReducer,
+  dish: dishSlice.reducer,
+  review: reviewSlice.reducer,
+  user: userSlice.reducer,
 });
 
 // export const store = createStore(
@@ -33,7 +30,7 @@ const rootReducer = combineReducers({
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([logger, loadRestaurantIfNotExist]),
+    getDefaultMiddleware().concat([logger]),
 });
 
 console.log("state", store.getState());

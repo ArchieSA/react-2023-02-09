@@ -3,16 +3,11 @@ import { Tab } from "../Tab/Tab";
 
 import styles from "./styles.module.css";
 
-export const Tabs = ({ tabs, onTabClick, activeId }) => {
+export const Tabs = ({ tabs }) => {
   return (
     <div className={styles.root}>
       {tabs.map(({ title, id }) => (
-        <Tab
-          title={title}
-          onClick={() => onTabClick(id)}
-          isActive={activeId === id}
-          className={styles.tab}
-        />
+        <Tab title={title} to={id} className={styles.tab} />
       ))}
     </div>
   );

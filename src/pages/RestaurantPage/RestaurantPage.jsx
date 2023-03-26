@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Cart } from "../../components/Cart/Cart";
-import { Restaurant } from "../../components/Restaurant/Restaurant";
 import { RestaurantTabs } from "../../containers/RestaurantTabs/RestaurantTabs";
-import { restaurantActions } from "../../store/entities/restaurant";
+import { loadRestaurantIfNotExist } from "../../store/entities/restaurant/thunks/loadRestaurantsIfNotExist";
 import {
   selectIsRestaurantLoaded,
   selectIsRestaurantLoading,
@@ -11,25 +9,16 @@ import {
 } from "../../store/entities/restaurant/selectors";
 
 import styles from "./styles.module.css";
+import { Outlet } from "react-router-dom";
 
 export const RestaurantPage = () => {
   const dispatch = useDispatch();
-  const restaurantIds = useSelector(selectRestaurantIds);
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurantIds[0]
-  );
+
   const isLoading = useSelector(selectIsRestaurantLoading);
-  const isLoaded = useSelector(selectIsRestaurantLoaded);
 
   useEffect(() => {
-    dispatch(restaurantActions.loadRestaurantsAction());
+    dispatch(loadRestaurantIfNotExist());
   }, []);
-
-  useEffect(() => {
-    if (isLoaded) {
-      setActiveRestaurantId(restaurantIds[0]);
-    }
-  }, [isLoaded]);
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -38,13 +27,9 @@ export const RestaurantPage = () => {
   return (
     <div className={styles.root}>
       <div>
-        <RestaurantTabs
-          activeId={activeRestaurantId}
-          onTabClick={setActiveRestaurantId}
-        />
-        {activeRestaurantId && <Restaurant restaurantId={activeRestaurantId} />}
+        <RestaurantTabs />
+        <Outlet />
       </div>
-      <Cart />
     </div>
   );
 };
